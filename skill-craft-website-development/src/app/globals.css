@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --color-deep: #101b3d;
+  --color-skill: #3155d9;
+  --color-accent: #6b8cff;
+  --color-charcoal: #20232c;
+  --color-offwhite: #f7f8fc;
+
+  --font-heading: var(--font-montserrat), "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-roboto), "Roboto", ui-sans-serif, system-ui, sans-serif;
+  --font-caption: var(--font-lato), "Lato", ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-card: 0 1px 2px rgba(16, 27, 61, 0.05), 0 12px 32px -12px rgba(16, 27, 61, 0.18);
+  --shadow-lift: 0 2px 4px rgba(16, 27, 61, 0.06), 0 28px 56px -18px rgba(49, 85, 217, 0.35);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-offwhite);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Grade geométrica sutil */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(49, 85, 217, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(49, 85, 217, 0.07) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.bg-grid-dark {
+  background-image:
+    linear-gradient(to right, rgba(107, 140, 255, 0.09) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(107, 140, 255, 0.09) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.animate-float {
+  animation: float-y 7s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
